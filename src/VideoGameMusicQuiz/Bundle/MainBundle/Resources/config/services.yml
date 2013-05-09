@@ -1,0 +1,7 @@
+parameters:
+#    video_game_music_quiz_main.example.class: VideoGameMusicQuiz\Bundle\MainBundle\Example
+
+services:
+#    video_game_music_quiz_main.example:
+#        class: %video_game_music_quiz_main.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

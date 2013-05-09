@@ -1,0 +1,30 @@
+@charset "UTF-8";
+/* CSS Document */
+#main {
+	position: relative;
+	width: 641px;
+height: 385px;
+}
+
+#video-holder {
+	width: 641px;
+	height: 385px;
+	margin: 0 auto;
+	padding: 0 0 40px 0;
+	z-index:1;
+	position:absolute;
+}
+
+#hideBox {
+	width: 641px;
+	height: 385px;
+	margin: 0 auto;
+	padding: 0 0 40px 0;
+	z-index: 2;
+	position: absolute;
+	background-color: black;
+	display:none;
+}
+.btn-box {
+	margin-top: 50px;
+}

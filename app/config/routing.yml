@@ -1,0 +1,4 @@
+video_game_music_quiz_main:
+    resource: "@VideoGameMusicQuizMainBundle/Resources/config/routing.yml"
+    prefix:   /
+
