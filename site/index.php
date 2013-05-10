@@ -7,7 +7,7 @@
 
 <body>
 	
-    <link href="/VideoGameMusicQuiz/site/styles/styles.css" rel="stylesheet"/>
+    <link href="styles/styles.css" rel="stylesheet"/>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
     <header>
         <h1>
@@ -54,7 +54,7 @@
       }
     </script>
     <script src="https://apis.google.com/js/client.js?onload=load"></script>
-    <script src="/VideoGameMusicQuiz/site/scripts/scripts.js" type="application/javascript"></script>
+    <script src="scripts/scripts.js" type="application/javascript"></script>
 	<script>
         // Load youtube video
         var params = { allowScriptAccess: "always", allowFullScreen: true };
