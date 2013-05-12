@@ -6,6 +6,8 @@ var playlistId, nextPageToken, prevPageToken;
 // Once the api loads call a function to get the uploads playlist id.
 function handleAPILoaded() {
   requestVideoPlaylist("PL3E245DF445E37F50");
+  //requestVideoPlaylist("PLE450FE833FA2B69E");
+  //requestVideoPlaylist("PL31E85566E71354FD");
 }
 
 function SendResponse() {
