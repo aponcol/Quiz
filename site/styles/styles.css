@@ -23,7 +23,7 @@ height: 385px;
 	z-index: 2;
 	position: absolute;
 	background-color: black;
-	display:none;
+	/*display:none;*/
 }
 .btn-box {
 	margin-top: 50px;
