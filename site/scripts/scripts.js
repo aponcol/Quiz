@@ -1,39 +1,35 @@
-// JavaScript Document
+// This callback is invoked by the Google APIs JS client automatically when it is loaded.
+googleApiClientReady = function() {
+  gapi.auth.init(function() {
+    loadAPIClientInterfaces();
+	//window.setTimeout(checkAuth, 1);
+  });
+}
 
-	// Some variables to remember state.
+// Loads the client interface for the YouTube Analytics and Data APIs.
+// This is required before using the Google APIs JS client; more info is available at
+// http://code.google.com/p/google-api-javascript-client/wiki/GettingStarted#Loading_the_Client
+function loadAPIClientInterfaces() {
+  gapi.client.setApiKey('AIzaSyBrd7H-rEyn_bxcFnFUPbP8qAa7a-00qXo');
+  gapi.client.load('youtube', 'v3', function() {
+    handleAPILoaded();
+  });
+}
+
+// Some variables to remember state.
 var playlistId, nextPageToken, prevPageToken;
 
 // Once the api loads call a function to get the uploads playlist id.
 function handleAPILoaded() {
+  // Playlist 1
   requestVideoPlaylist("PL3E245DF445E37F50");
+  
+  // Playlist 2
   //requestVideoPlaylist("PLE450FE833FA2B69E");
+  
+  // Playlist 3
   //requestVideoPlaylist("PL31E85566E71354FD");
 }
-
-function SendResponse() {
-		
-		var value = $('input[name="answer"]:checked').val();
-		console.log(value);
-		if (value != null) {
-			var videoUrl = ytplayer.getVideoUrl();
-			var ytplayerv = getParameterByName(videoUrl,'v');
-			console.log(value);
-			console.log(ytplayerv);
-			
-			if(value == ytplayerv) {
-				alert("correct");
-				$('#hideBox').hide();
-			}
-			else {
-				alert("wrong!");
-				
-				
-			}
-		} else {
-			alert("no value selected");
-			}
-		
-	}
 
 // Retrieve a playist of videos.
 function requestVideoPlaylist(playlistId) {
@@ -84,8 +80,8 @@ function requestVideoPlaylist(playlistId) {
 		var playlistItemsSplice = playlistItems.splice(randomNum,1);
 		var title = getTitle(playlistItemsSplice[0].snippet.title);
 		// Build the options
-		$("#option-" + answerArraySplice).html(title);
-		$("input.option-"+ answerArraySplice).val(videoId);
+		$("#option-" + answerArraySplice + " span").html(title);
+		$("#option-" + answerArraySplice + " input").val(videoId);
 	  }
 	  
     } else {
@@ -95,15 +91,39 @@ function requestVideoPlaylist(playlistId) {
 }
 
 
+// This function will check the response of the user and return a message of correct or wrong!
+function SendResponse() {
+	var value = $('input[name="answer"]:checked').val();
+	if (value != null) {
+		var videoUrl = ytplayer.getVideoUrl();
+		var ytplayerv = getParameterByName(videoUrl,'v');
+		
+		if(value == ytplayerv) {
+			alert("correct");
+			$('#hideBox').hide();
+		}
+		else {
+			alert("wrong!");
+		}
+	} else {
+		alert("no value selected");
+		}
+}
+
+// Utility functions:
+
+// Get a random number from 0 to max
 function getRandomInt (max) {
     return Math.floor(Math.random() * (max + 1));
 }
 
+// Removes the first part of the array for the title of the videos.
 function getTitle(rawTitle) {
 	var startIndex = rawTitle.lastIndexOf("]");
 	return rawTitle.substring(startIndex + 2)
 }
 
+// Receives a url and the name of a parameter and returns the value of the parameter (query string)
 function getParameterByName(videoUrl, name) {
     name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
     var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
@@ -141,6 +161,8 @@ function previousPage() {
 			handleAPILoaded();
 		  });
       }*/
+	  
+// Loads the desired youtube video in the viewer
 function loadYoutubeVideo(id) {
 	
 	ytplayer.loadVideoById({'videoId': id, 'startSeconds': 6});
@@ -152,6 +174,7 @@ function onYouTubePlayerReady(playerId) {
     ytplayer.addEventListener("onStateChange", "onytplayerStateChange");
 }
 
+// Functions that runs on state change of the video player
 function onytplayerStateChange(newState) {
     if (newState == 1) {
         console.log("playing");
@@ -162,38 +185,4 @@ function onytplayerStateChange(newState) {
 	if (newState == 2) {
         console.log("paused or ad!");
     }
-}
-
-function GetVideos(numberOfVideos, channelId) {
-	$.ajax({
-	  method: "GET",
-	  url: "https://www.googleapis.com/youtube/v3/playlists?id=PL3E245DF445E37F50&key=AIzaSyBrd7H-rEyn_bxcFnFUPbP8qAa7a-00qXo&part=snippet,contentDetails,status",
-	  success: function(response){
-	  	console.log(response);
-	  },
-	  error: function(message) {
-		console.log(message);
-	  }
-	});
-	
-	// Volume 1: http://www.youtube.com/playlist?list=PL3E245DF445E37F50
-	// var obj = jQuery.parseJSON('{"name":"John"}');
-	
-	//for(int i = 0; i<numberOfVideos; i++) {
-		
-	//}
-}
-
-//Retrieve the uploads playlist id.
-function requestUserUploadsPlaylistId() {
-    // https://developers.google.com/youtube/v3/docs/channels/list
-    var request = gapi.client.youtube.channels.list({
-        // mine: '' indicates that we want to retrieve the channel for the authenticated user.
-        mine: '',
-        part: 'contentDetails'
-    });
-    request.execute(function (response) {
-        playlistId = response.result.items[0].relatedPlaylists.uploads;
-        requestVideoPlaylist(playlistId);
-    });
 }
