@@ -1,3 +1,0 @@
-video_game_music_quiz_main_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: VideoGameMusicQuizMainBundle:Default:index }
