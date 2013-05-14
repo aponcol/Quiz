@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <br>
+        <title>Testing site Gabriel</title>
+    <!-- This is a testing site to improve my HTML skills -->
+    <style type="text/css">
+  
+    h1 { text-align : center;}
+    #login {
+	padding:0px 0px 0px 330px; 
+	text-align:left;
+	vertical-align:top;
+	}
+    
+    </style>
+    
+    </head>
+    <script type="text/javascript" src=password.js></script>
+    <script type="text/javascript" src=validate.js></script>    
+    <body bgcolor = #FFFFFF>
+
+    <center>
+        <div>
+        <h1>Testing site Gabriel</h1>
+        </div>
+        <div style="cellspacing:2pt; cellpadding:2pt; border:1; align:center; width:600; margin:0pt; padding:0px;">
+            <p align = center> This website was created as a testing site for my <b>HTML training</b>. Javascript, PHP and mySQL (Database). Little by little this website will become a <b><font color = #0000A0>beautiful fully functional</font></b> website for testing.</p>
+        </div>
+        
+        <div style="border:1; align:center; width:600; bgcolor:#FFFFFF; margin:0pt;">
+            <div>
+                <img align="left" src=http://web.me.com/apontecolina/Testing/Images/In_Defacto.jpg>
+            </div>
+            <div id="login">
+                <p> Please login with your provided login and password: </p>
+                <form name="formulario" id="formulario" action="javascript:void(0);" method="post">
+                Email: <br><input style="h1" type="text" name="email" id='email'><br>
+                Password: <br><input type="password" name="password" id='password'>
+                <input type="submit" value="Submit" onClick="return validate(formulario)";>
+                </form>
+            </div>
+        </div>
+       
+    
+    </body>
+</html>
