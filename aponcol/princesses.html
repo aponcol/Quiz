@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>Les Princesses</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" ></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" ></script>
+<script type="text/javascript">
+$(document).ready(function () {
+      $('#Jasmine').bind('mouseenter',function() {
+             $('#Ariel').hide();
+             $('#Ursula').show();
+      });
+      $('#Jasmine').bind('mouseleave',function() {
+             $('#Ariel').show();
+             $('#Ursula').hide();
+      });
+});
+</script
+</head>
+
+<body>
+	<center>
+    	<h1>Les princesses de Disney</h1>
+        <ul style="list-style:none;">
+        	<li>
+            	<h2>Jasmine</h2>
+                <a href="http://disney.com">
+                      <img id="Jasmine" src="http://images2.fanpop.com/images/photos/6600000/Jasmine-Wallpaper-aladdin-6603746-1024-768.jpg" style="width:300px;" />
+
+                </a>
+            </li>
+            <li>
+            	<h2>Ariel</h2>
+                <img id="Ariel" src="http://images.fanpop.com/images/image_uploads/Ariel---Flounder-the-little-mermaid-223085_1280_1024.jpg" style="width:300px;" />
+                <img id="Ursula" src="http://images.wikia.com/disney/images/e/ed/UrsulaKHII.jpg" style="width:300px; display:none;" />
+            </li>
+            <li>
+            	<h2>Cendrillon</h2>
+                <img id="Cendrillon" src="http://chezminette87.c.h.pic.centerblog.net/lgyiydg9.jpg" style="width:300px;" />
+            </li>
+        </ul>
+    </center>
+</body>
+</html>

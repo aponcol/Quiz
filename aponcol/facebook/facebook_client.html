@@ -1,0 +1,112 @@
+ <html> 
+   <head> 
+     <title>Client Flow Example</title> 
+   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" ></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" ></script>
+    <script type="text/javascript" src="/validate.js"></script>
+   </head> 
+   <body> 
+   <script>
+	var accessToken;
+	var appID = "292198557496782";
+	var albumID;
+
+	function MakeProfile(picID) {
+		var url = "https://graph.facebook.com/"+albumID+"/photos/"+picID+accessToken;
+		top.location.href = url;
+		
+	}
+	function ChangeProfilePic() {
+		var data = accessToken;
+		data += "&message=Uploaded tested";
+		data += "&source=http://aponcol.co.cc/facebook/defacto-logo250.png";
+		$.ajax({
+			  url: "https://graph.facebook.com/"+albumID+"/photos",
+			  data: data,
+			  type: "POST",
+			  success: function(msg){
+				alert('done');
+			  },
+			  error: function(xhr) {
+				alert(xhr.responseText);
+			  }
+		});
+	}
+	function PostToWall(id) {
+	    var data = accessToken;
+        data += "&message="+$(id).val();
+		$.ajax({
+			  url: "https://graph.facebook.com/me/feed/",
+			  data: data,
+			  type: "POST",
+			  success: function(msg){
+				alert('done');
+			  }
+		});
+	}
+	function renderInfo(user) {
+		$('#image').attr('src','http://graph.facebook.com/'+user.id+'/picture');
+	}
+	function displayUser(user) {
+       var userName = document.getElementById('userName');
+       var greetingText = document.createTextNode('Greetings, ' + user.name + '.');
+	   userName.appendChild(greetingText);
+	   renderInfo(user);
+    }
+	function SearchProfileAlbum(user) {
+		var albumData = document.getElementById('albumData');
+		$.each(user.data, function() {
+			if (this.type == "profile") {
+				albumID = this.id;
+			}
+		});
+		$('#albumData').html(albumID);
+		$('#UploadPhoto').attr("action","https://graph.facebook.com/"+albumID+"/photos?"+accessToken);
+	}
+     
+    if (window.location.hash.length == 0) {
+		var path = 'https://www.facebook.com/dialog/oauth?';
+		var queryParams = ['client_id=' + appID,
+			'redirect_uri=' + window.location,
+			'response_type=token',
+			'scope=email,read_stream,friends_about_me, publish_stream'];
+		var query = queryParams.join('&');
+		var url = path + query;
+		top.location.href=url;
+	} else {
+        accessToken = window.location.hash.substring(1);
+        console.log(accessToken);
+		var path = "https://graph.facebook.com/me?";
+		var queryParams = [accessToken, 'callback=displayUser'];
+		var query = queryParams.join('&');
+		var url = path + query;
+		
+		var albums = "https://graph.facebook.com/me/albums?";
+		var queryPhotoParams = [accessToken, 'callback=SearchProfileAlbum'];
+		var albumQuery = queryPhotoParams.join('&');
+		var albumUrl = albums + albumQuery;
+
+		// use jsonp to call the graph
+		var script = document.createElement('script');
+		script.src = url;
+		document.body.appendChild(script);
+		
+		var albumScript = document.createElement('script');
+		albumScript.src = albumUrl;
+		document.body.appendChild(albumScript);
+    }
+    console.log(accessToken);
+	</script>
+   <p id="userName"></p>
+   <p id="albumData"></p>
+   <img id="image" src="" />
+   <textarea id="Post" placeholder="Post to your wall..."></textarea>
+   <input type="button" onClick="javascript:PostToWall('#Post')" value="Submit" />
+   <form id="UploadPhoto" enctype="multipart/form-data" action="" method="POST">
+	<input name="source" type="file"><br/><br/>
+	<input name="message" type="text" value=""><br/><br/>
+	<input type="submit" value="Change Profile" />
+   </form>
+   <input type="button" onClick="javascript:MakeProfile('130962317026857')" value="Make the profile pic" />
+   </body> 
+  </html>

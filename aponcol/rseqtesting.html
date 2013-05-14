@@ -1,0 +1,866 @@
+
+
+
+
+
+<!doctype html>
+
+<html class="no-js">
+
+<head>
+
+    <title>RSEQ</title>
+
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <meta name="description" content="RSEQ Description test">
+
+    <meta name="author" content="">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="/css/site.css" media="all" />
+
+    <!--[if lt IE 9]><link rel="stylesheet" media="all" type="text/css" href="css/ie.css" /><![endif]-->
+
+    <!-- HTML5 Video (Video CSS) -->
+
+    <link rel="stylesheet" type="text/css" href="/css/video-js-1.1.5.css" />
+
+    <!-- VideoJS Skins -->
+
+    <link rel="stylesheet" type="text/css" href="/css/HTML5Video/hu.css" />
+
+    <link rel="stylesheet" type="text/css" href="/css/HTML5Video/tube.css" />
+
+    <link rel="stylesheet" type="text/css" href="/css/HTML5Video/vim.css" />
+
+    <link rel="stylesheet" type="text/css" href="/css/PlaceholderPlugin/css/style.css" />
+
+
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+
+    <script type="text/javascript" src="/scripts/slides.min.jquery.js"></script>
+
+    <script type="text/javascript" src="http://www.flickrshow.co.uk/static/scripts/flickrshow-7.2.min.js"></script>
+
+    <script type="text/javascript" src="/scripts/modernizr.js"></script>
+
+    <script type="text/javascript" src="/scripts/navSearch.js"></script>
+
+    <!--<script type="text/javascript" src="/scripts/hide-inputs.js"></script>-->
+
+    <script type="text/javascript" src="/scripts/site.js"></script>
+
+    <script type="text/javascript" src="/scripts/knockout-2.0.0.debug.js" ></script>
+
+    <script type="text/javascript" src="/scripts/knockout-2.0.0.js" ></script>
+
+    <script type="text/javascript" src="/scripts/widgetTool.js" ></script>
+
+    <script type="text/javascript" src="/scripts/GoogleMaps.js" ></script>
+
+    <script type="text/javascript" src="/css/PlaceholderPlugin/js/jquery.placeholder.js" ></script>
+
+
+
+    <!-- HTML5 Video (VideoJS) -->
+
+    <script type="text/javascript" src="/scripts/HTML5Video/video-js-1.1.5.js"></script>    
+
+    <script type="text/javascript">
+
+        //This will add VideoJS to all <video> tags on the page when the DOM is ready
+
+        VideoJS.setupAllWhenReady();
+
+    </script>
+
+
+
+    
+
+</head>
+
+<body>
+
+    <div id="container">
+
+        <header>
+
+            <!-- header -->
+
+            
+
+<div class="top">
+
+	<section class="logo-box">
+
+		<h1 class="logo"><a href="/">Sport. Education. Fierte. RSEQ</a></h1>
+
+		<a href="#" name="fb_share" class="like">like</a>
+
+        <script type="text/javascript" src="http://static.ak.fbcdn.net/connect.php/js/FB.Share"></script>
+
+	</section>
+
+	<div class="form-box">
+
+		<section class="login-box">
+
+            <a href="#" class="login" id="connexionLink">connexion</a>
+
+            <div id="loginBoxForm" class="loginBoxForm">
+
+                <div>
+
+                    <label for="login-username">Utilisateur</label>
+
+                    <input type="text" id="login-username" name="login-username" value="" />
+
+                </div>
+
+                <div>
+
+                    <label for="login-password">Mot de passe</label>
+
+                    <input type="password" id="login-password" name="login-password" value="" />
+
+                </div>     
+
+                <div id="loginError" name="loginError" class="loginboxError"></div>                
+
+                <div>                           
+
+                    <input type="button" onClick="SendLogin();" value="Ouvrir une session">
+
+                </div>
+
+            </div>
+
+		</section>
+
+		<section class="search-form">
+
+			<form action="/recherche/" method="GET">
+
+				<fieldset>
+
+					<div class="input-text">
+
+						<input type="text" name="s" class="text" placeholder="RECHERCHE" value=""  />
+
+					</div>
+
+					<input class="submit" type="image" src="/media/ui/buttons/btn-submit.gif" alt="submit" />
+
+				</fieldset>
+
+			</form>
+
+		</section>
+
+	</div>
+
+</div>
+
+
+
+        
+
+            <!-- Navigation -->
+
+                          
+
+<nav>
+
+	<ul>
+
+		<li id="SportFilter">
+
+			<a id="SportFilterDrop" href="#null">Sport</a>
+
+			<div class="drop">
+
+				<strong class="title">Choisissez l&rsquo;information souhait&eacute;e en utilisant une ou plusieurs des options suivantes</strong>
+
+				<div class="holder">
+
+					<ul class="list-1">
+
+						<li><a href="#null">athl&eacute;tisme</a></li>
+
+                        <li><a href="#null">athl&eacute;tisme en salle</a></li>
+
+						<li><a href="#null">badminton</a></li>
+
+						<li><a href="#null">basketball</a></li>
+
+						<li><a href="#null">cheerleading</a></li>
+
+						<li><a href="#null">cross country</a></li>
+
+						<li><a href="#null">crosse</a></li>
+
+						<li><a href="#null">flag football</a></li>
+
+						<li><a href="#null">football</a></li>
+
+						<li><a href="#null">golf</a></li>
+
+						<li><a href="#null">halt&eacute;rophilie</a></li>
+
+						<li><a href="#null">hockey</a></li>
+
+						<li><a href="#null">hockey cosom</a></li>
+
+                        <li><a href="#null">hockey sans contact</a></li>
+
+						<li><a href="#null">natation</a></li>
+
+						<li><a href="#null">rugby</a></li>
+
+						<li><a href="#null">ski</a></li>
+
+						<li><a href="#null">soccer</a></li>
+
+                        <li><a href="#null">soccer int&eacute;rieur</a></li>
+
+                        <li><a href="#null">soccer en gymnase</a></li>
+
+                        <li><a href="#null">soccer intersectoriel</a></li>
+
+						<li><a href="#null">volleyball</a></li>
+
+					</ul>
+
+					<ul class="list-2">
+
+						<li class="color secteurlist"><div>coll&eacute;gial</div></li>
+
+						<li class="color secteurlist"><div>universitaire</div></li>
+
+                        <li class="category">scolaire</li>
+
+                        <li class="color secteurlist"><div>ligues provinciales</div></li>
+
+                        <li class="color secteurlist"><div>championnat provincial</div></li>
+
+					</ul>
+
+					<ul class="list-3">
+
+						<li class="color niveaulist"><div>division 1</div></li>
+
+                        <li class="color niveaulist"><div>division 1b</div></li>
+
+						<li class="color niveaulist"><div>division 2</div></li>
+
+                        <li class="color niveaulist"><div>division 2b</div></li>
+
+						<li class="color niveaulist"><div>division 3</div></li>
+
+						<li class="category">cat&eacute;gorie</li>
+
+                        <li class="color scolaire"><div>benjamin</div></li>
+
+						<li class="color scolaire"><div>cadet</div></li>
+
+						<li class="color scolaire"><div>juvénile</div></li>
+
+					</ul>
+
+					<ul class="list-4">
+
+						<li class="color sectionlist"><div>nord-est</div></li>
+
+						<li class="color sectionlist"><div>sud-ouest</div></li>
+
+					</ul>
+
+					<ul class="list-5">
+
+						<li class="color genrelist"><div>f&eacute;minin</div></li>
+
+						<li class="color genrelist"><div>masculin</div></li>
+
+						<li class="color genrelist"><div>mixte</div></li>
+
+					</ul>
+
+				</div>
+
+				<a href="#" class="submit">soumettre</a>
+
+			</div>
+
+		</li>
+
+		<li><a href="#null">secteur</a></li>
+
+		<li><a href="#null">niveau</a></li>
+
+		<li><a href="#null">section</a></li>
+
+		<li><a href="#null">genre</a></li>
+
+	</ul>
+
+</nav>
+
+<section class="sub-nav">
+
+    <ul>
+
+                <li><a href="/statistiques/" target=&quot;_blank&quot;>Statistiques</a></li>
+
+                <li><a href="/viesaine/">Vie Saine</a></li>
+
+                <li><a href="/ethiquesportive/">&#201;thique Sportive</a></li>
+
+                <li><a href="/tabledhonneur/">Tableau d&#39;Honneur</a></li>
+
+                <li><a href="/evenements/">&#201;v&#233;nements</a></li>
+
+                <li><a href="/boutique/" target=&quot;_blank&quot;>Boutique</a></li>
+
+                <li><a href="/regions/">R&#233;gions</a></li>
+
+                <li><a href="/bottin/"></a></li>
+
+    </ul>
+
+</section>
+
+<a href="#" class="logos">Commanditaire principal Desjardins</a>
+
+
+
+        </header><!-- header end -->
+
+
+
+        
+<div id="main">
+    
+
+    <div class="top-holder">
+
+        <!-- main content holder -->
+
+        <section id="content">
+
+            
+				<div id="fb-root"></div>
+		  <script>
+			  (function (d, s, id) {
+				  var js, fjs = d.getElementsByTagName(s)[0];
+				  if (d.getElementById(id)) return;
+				  js = d.createElement(s); js.id = id;
+				  js.src = "//connect.facebook.net/fr_FR/all.js#xfbml=1";
+				  fjs.parentNode.insertBefore(js, fjs);
+			  } (document, 'script', 'facebook-jssdk'));
+		  </script>
+		  <div class="fb-facepile" style="padding:10px;" data-href="http://www.facebook.com/RSEQ1" data-action="like" data-size="large" data-max-rows="4" data-width="210" data-colorscheme="dark"></div>
+		  
+
+<div id="gallery2">
+
+    <div class="slides_container">
+
+                <div class="slide">
+
+                    <img src="`/media/ui/bg-logo.png" width="619" height="270" alt="">
+
+                    <div class="caption">
+
+                        <h3>Big news about all football</h3>
+
+                        <p>Aliquam pretium magna vel ipsum vulputate in malesuada ligula rhoncus. Suspendisse sit amet mi leo. <a href="/sports/football/nouvelles/test-news-under-football/">[+]</a></p>
+
+                    </div>
+
+                </div>
+
+                <div class="slide">
+
+                    <img src="/media/1257/image1.jpg" width="619" height="270" alt="">
+
+                    <div class="caption">
+
+                        <h3>Very cool archived news about some event</h3>
+
+                        <p>Aliquam pretium magna vel ipsum vulputate in malesuada ligula rhoncus. Suspendisse sit amet mi leo. <a href="/sports/football/archives/very-cool-archived-news-about-some-event/">[+]</a></p>
+
+                    </div>
+
+                </div>
+
+                <div class="slide">
+
+                    <img src="/media/1257/image1.jpg" width="619" height="270" alt="">
+
+                    <div class="caption">
+
+                        <h3>Archived news about some event #222222</h3>
+
+                        <p>Aliquam pretium magna vel ipsum vulputate in malesuada ligula rhoncus. Suspendisse sit amet mi leo. <a href="/sports/football/archives/archived-news-about-some-event/">[+]</a></p>
+
+                    </div>
+
+                </div>
+
+                <div class="slide">
+
+                    <img src="/media/1257/image1.jpg" width="619" height="270" alt="">
+
+                    <div class="caption">
+
+                        <h3>Archived news about some other event #333333333</h3>
+
+                        <p>Aliquam pretium magna vel ipsum vulputate in malesuada ligula rhoncus. Suspendisse sit amet mi leo. <a href="/sports/football/archives/archived-news-about-some-other-event/">[+]</a></p>
+
+                    </div>
+
+                </div>
+
+                <div class="slide">
+
+                    <img src="/media/1257/image1.jpg" width="619" height="270" alt="">
+
+                    <div class="caption">
+
+                        <h3>Une nouvelle archiv&#233;e dans division</h3>
+
+                        <p>auris tempus nisi quis justo imperdiet eu facilisis justo egestas. Vivamus mattis lorem quis sapien elementum accumsan a et neque.  <a href="/sports/football/universitaire/division-1/archives/une-nouvelle-archive-dans-division/">[+]</a></p>
+
+                    </div>
+
+                </div>
+
+    </div>
+
+    <!--<a href="#" class="prev"><img src="img/arrow-prev.png" width="24" height="43" alt="Arrow Prev"></a>
+
+	<a href="#" class="next"><img src="img/arrow-next.png" width="24" height="43" alt="Arrow Next"></a>-->
+
+</div>
+
+    <div class="news-holder">
+
+        
+
+<section class="news widgetTool_2">
+
+	<h2>nouvelles</h2>
+
+	<ul class="list-info widgetToolLinks_2">
+
+		<li class="active"><a href="#"><span>Scolaire</span></a></li>
+
+		<li><a href="#"><span>Coll&eacute;gial</span></a></li>
+
+		<li><a href="#"><span>Universtaire</span></a></li>
+
+		<li><a href="#"><span>Vie saine</span></a></li>
+
+	</ul>
+
+	<div class="info">
+
+		<ul class="widgetToolContent_2">
+
+            <li class="date"></li><a href="#" class="text"></a>
+
+            
+
+            
+
+		</ul>
+
+	</div>
+
+</section>
+
+	    
+
+<section class="calendar widgetTool_1">
+
+    <h2>calendriers</h2>
+
+    <ul class="list-info widgetToolLinks_1">
+
+        <li class="active"><a href="#"><span>Scolaire</span></a></li>
+
+        <li><a href="#"><span>Coll&eacute;gial</span></a></li>
+
+        <li><a href="#"><span>Universtaire</span></a></li>
+
+        <li><a href="#"><span>Vie saine</span></a></li>
+
+    </ul>
+
+    <div class="info widgetToolContent_1">
+
+        <div class="latest">
+
+            <span class="date"></span>
+
+			<h3><a href="#" class="title"></a></h3>
+
+			<p><a href="#" class="title"></a></p>
+
+		</div>
+
+        
+
+    
+
+    
+
+
+
+    </div>
+
+</section>
+
+
+
+
+
+    </div>
+
+
+
+        </section><!-- main content end -->
+
+    
+
+        <aside>
+
+            
+
+  <section class="region-holder">
+
+	    <div class="top">
+
+		    <h3>Instances r&eacute;gionales</h3>
+
+		    <p>Sport, activit&eacute;s et programmes r&eacute;gionaux parascolaires dans les &eacute;coles primaires et secondaires.</p>
+
+	    </div>
+
+	    <div class="info">
+
+		    <ul class="slide">
+
+			    <li><a href="http://at.rseq.ca" target="_blank">abitibi-t&eacute;miscamingue</a></li>
+
+			    <li><a href="http://ce.rseq.ca" target="_blank">cantons-de-l&rsquo;est</a></li>
+
+			    <li><a href="http://cote-nord.rseq.ca" target="_blank">c&ocirc;te-nord</a></li>
+
+			    <li><a href="http://estduquebec.rseq.ca/" target="_blank">est-du-qu&eacute;bec</a></li>
+
+			    <li><a href="http://www.gmaa.ca/" target="_blank">greater montreal-gmaa</a></li>
+
+                <li><a href="http://www.arselsl.qc.ca/" target="_blank">lac-saint-louis</a></li>
+
+                <li><a href="http://ll.rseq.ca/" target="_blank">laurentides-lanaudi&egrave;re</a></li>
+
+                <li><a href="http://laval.rseq.ca" target="_blank">laval</a></li>
+
+                <li><a href="http://mauricie.rseq.ca/" target="_blank">Mauricie</a></li>
+
+                <li><a href="http://monteregie.rseq.ca" target="_blank">Mont&eacute;r&eacute;gie</a></li>
+
+                <li><a href="http://montreal.rseq.ca" target="_blank">Montr&eacute;al</a></li>
+
+                <li><a href="http://outaouais.rseq.ca/" target="_blank">outaouais</a></li>
+
+                <li><a href="http://www.sportetudiant.qc.ca/" target="_blank">Qu&eacute;bec et Chaudi&egrave;ere - Appalaches</a></li>
+
+                <li><a href="http://saglac.rseq.ca/" target="_blank">Saguenay - Lac-St-Jean</a></li>
+
+		    </ul>
+
+		    <ul class="list">
+
+			    <li><a href="#null" class="next" id="regionalScrollUp">next</a></li>
+
+			    <li><a href="#null" class="prev" id="regionalScrollDown">prev</a></li>
+
+		    </ul>
+
+	    </div>
+
+    </section>
+
+    
+
+        <div class="calendaries">
+
+	        <h3>joueurs de la semaine</h3>
+
+            <div class="block">
+
+
+
+                            <p class="potwMaleWrapper" style="width: 100%">
+
+                                <img src="/media/8043/laval_brunoprudhommeheadshot.jpg" alt="Bruno Prud’homme" width="60px" class="potwWidgetImg" />
+
+                                <span class="blue"><b>Bruno Prud’homme</b></span><br />Laval Laval<br /><a href="/sports/football/universitaire/division-1/joueurs-de-la-semaine/2011/semaine-10/">[+]</a>
+
+                            </p>
+
+                            <br style="clear: both;" />
+
+                            <p class="potwMaleWrapper" style="width: 100%">
+
+                                <img src="/media/ui/icons/avatar-generic.png" alt="Maximilien Ducap Kamara" width="60px" class="potwWidgetImg" />
+
+                                <span class="blue"><b>Maximilien Ducap Kamara</b></span><br />Laval Laval<br /><a href="/sports/football/universitaire/division-1/joueurs-de-la-semaine/2011/semaine-10/">[+]</a>
+
+                            </p>
+
+                            <br style="clear: both;" />
+
+                            <p class="potwMaleWrapper" style="width: 100%">
+
+                                <img src="/media/8053/sherbrooke_raphaelgagneheadshot.jpg" alt="Rapha&#235;l Gagn&#233;" width="60px" class="potwWidgetImg" />
+
+                                <span class="blue"><b>Rapha&#235;l Gagn&#233;</b></span><br />Sherbrooke Sherbrooke<br /><a href="/sports/football/universitaire/division-1/joueurs-de-la-semaine/2011/semaine-10/">[+]</a>
+
+                            </p>
+
+                            <br style="clear: both;" />
+
+            </div>
+
+        </div>
+
+<br />
+
+    <section class="twitter-box">
+
+	    <h3>derniers tweet</h3>
+
+	    <div class="info">
+
+		    <ul>
+
+			    <li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam metus urna, ornare in iaculis in. <span>1 jour</span></a></li>
+
+			    <li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing. <span>3 jours</span></a></li>
+
+			    <li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam metus urna. <span>10 jours</span></a></li>
+
+		    </ul>
+
+	    </div>
+
+    </section>
+
+
+
+        </aside><!-- sidebar end -->
+
+    </div><!-- top-holder end -->
+
+
+    <div class="sponsor-box">
+  <h3>partenaires majeurs</h3>
+  <ul class="list">
+    <li><a href="#"><img src="/media/ui/logos/ico-001.gif" width="122" height="68" alt="image" /></a></li>
+    <li><a href="#"><img src="/media/ui/logos/ico-002.gif" width="158" height="68" alt="image" /></a></li>
+    <li><a href="#"><img src="/media/ui/logos/ico-003.gif" width="88" height="68" alt="image" /></a></li>
+    <li><a href="#"><img src="/media/ui/logos/ico-004.gif" width="123" height="68" alt="image" /></a></li>
+    <li><a href="#"><img src="/media/ui/logos/ico-005.gif" width="138" height="68" alt="image" /></a></li>
+    <li><a href="#"><img src="/media/ui/logos/ico-006.gif" width="87" height="68" alt="image" /></a></li>
+  </ul>
+</div>
+</div><!-- main end -->
+
+
+
+
+        <footer>
+
+            <!-- footer -->
+
+                <a href="#" class="footer-logo">RSEQ.CA</a>
+
+    <div class="holder">
+
+	    <section class="sport-list">
+
+		    <h3>SPORTS</h3>
+
+		    <ul>
+
+			    <li><a href="#">Athl&eacute;tisme</a></li>
+
+			    <li><a href="#">Badminton</a></li>
+
+			    <li><a href="#">Basketball</a></li>
+
+			    <li><a href="#">Cheerleading</a></li>
+
+			    <li><a href="#">Cross Country</a></li>
+
+			    <li><a href="#">Crosse</a></li>
+
+			    <li><a href="#">Flag Football</a></li>
+
+			    <li><a href="/football.aspx">Football</a></li>
+
+			    <li><a href="#">Golf</a></li>
+
+		    </ul>
+
+		    <ul>
+
+			    <li><a href="#">Halt&eacute;rophilie</a></li>
+
+			    <li><a href="#">Hockey</a></li>
+
+			    <li><a href="#">Hockey Cosom</a></li>
+
+			    <li><a href="#">Natation</a></li>
+
+			    <li><a href="#">Rugby</a></li>
+
+			    <li><a href="#">Ski</a></li>
+
+			    <li><a href="#">Soccer</a></li>
+
+			    <li><a href="#">Volleyball</a></li>
+
+		    </ul>
+
+	    </section>
+
+	    <section class="secteurs-list">
+
+		    <h3>SECTEURS</h3>
+
+		    <ul>
+
+			    <li><a href="#">Scolaire</a></li>
+
+			    <li><a href="#">Coll&eacute;gial</a></li>
+
+			    <li><a href="#">Universitaire</a></li>
+
+		    </ul>
+
+	    </section>
+
+	    <section class="vie-saine-list">
+
+		    <h3>vie saine</h3>
+
+		    <ul>
+
+			    <li><a href="#">Chaque jour moi j&rsquo;croque</a></li>
+
+			    <li><a href="#">De Facto</a></li>
+
+			    <li><a href="#">D&eacute;fi Moi j&rsquo;croque</a></li>
+
+			    <li><a href="#">&Eacute;l&egrave;ves en forme</a></li>
+
+			    <li><a href="#">En forme avec Myg et Gym</a></li>
+
+			    <li><a href="#">&Eacute;tudiants en forme</a></li>
+
+			    <li><a href="#">Gobes-tu &ccedil;a?</a></li>
+
+			    <li><a href="#">ISO-Actif</a></li>
+
+			    <li><a href="#">Jeunes actifs au secondaire</a></li>
+
+		    </ul>
+
+		    <ul>
+
+			    <li><a href="#">MEPSE</a></li>
+
+			    <li><a href="#">Pelure de banane</a></li>
+
+			    <li><a href="#">Saisons du primaire</a></li>
+
+			    <li><a href="#">Viens d&eacute;fier Gym</a></li>
+
+		    </ul>
+
+	    </section>
+
+	    <section class="authr-list">
+
+		    <h3>LIENS ADMINISTRATIFS ET AUTRES</h3>
+
+		    <ul>
+
+			    <li><a href="/lerseq/">Le RSEQ</a></li>
+
+			    <li><a href="#">Bottin</a></li>
+
+			    <li><a href="#">Conseil d&rsquo;administration</a></li>
+
+			    <li><a href="#">Contactez-nous</a></li>
+
+			    <li><a href="#">Emplois</a></li>
+
+			    <li><a href="#">&Eacute;thique Sportive</a></li>
+
+			    <li><a href="#">&Eacute;v&eacute;nements</a></li>
+
+			    <li><a href="/corporatif/historique.aspx">Historique</a></li>
+
+			    <li><a href="#">Liens utiles</a></li>
+
+		    </ul>
+
+		    <ul>
+
+			    <li><a href="#">R&eacute;gions</a></li>
+
+			    <li><a href="#">RSEQ.TV</a></li>
+
+			    <li><a href="/corporatif/partenaires.aspx">Partenaires</a></li>
+
+			    <li><a href="#">Publications</a></li>
+
+			    <li><a href="#">Tableau d&rsquo;honneur</a></li>
+
+			    <li><a href="#">Vie Saine</a></li>
+
+		    </ul>
+
+	    </section>
+
+    </div>
+
+    <section class="copy-box">
+
+	    <span class="link">Site par <a href="#">PHIL</a></span>
+
+	    <p>&copy; 2011 R&eacute;seau du sport &eacute;tudiant du Qu&eacute;bec - Tous droits r&eacute;serv&eacute;s </p>
+
+    </section>
+
+        </footer><!-- footer end -->
+
+    </div><!-- container end -->
+
+</body>
+
+</html>
+
+
+
