@@ -52,7 +52,7 @@
   } catch (Google_Exception $e) {
     //$htmlBody .= sprintf('<p>An client error occurred: <code>%s</code></p>',
       //htmlspecialchars($e->getMessage()));
-	  echo "Exception";
+	  echo "Exception".$e->getMessage();
   }
 	
 	//$requestUrl = "https://www.googleapis.com/youtube/v3/videos?playlistId=PL3E245DF445E37F50&key=AIzaSyBrd7H-rEyn_bxcFnFUPbP8qAa7a-00qXo&part=snippet";
